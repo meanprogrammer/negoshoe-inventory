@@ -17,5 +17,6 @@ namespace NegoShoePH.Data
         {
             return context.Items.ToList();
         }
+
     }
 }
