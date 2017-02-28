@@ -18,5 +18,12 @@ namespace NegoShoePH.Data
             return context.Items.ToList();
         }
 
+        public bool SaveItem(Item i)
+        {
+            context.Items.InsertOnSubmit(i);
+            int result = context.GetChangeSet().Inserts.Count;
+            context.SubmitChanges();
+            return result > 0;
+        }
     }
 }

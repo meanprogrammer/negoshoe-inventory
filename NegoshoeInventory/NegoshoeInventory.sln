@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NegoShoePH.Data", "NegoShoe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NegoShoePH.Entity", "NegoShoePH.Entity\NegoShoePH.Entity.csproj", "{22D3E56F-603B-425B-990B-0DB508C613EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NegoShoePH.Inventory.Web", "NegoShoePH.Inventory.Web\NegoShoePH.Inventory.Web.csproj", "{60422492-3657-47AF-BC67-C95AF0BC98CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NegoShoePH.DataTest", "NegoShoePH.DataTest\NegoShoePH.DataTest.csproj", "{CFF916CA-3675-4071-9C64-0490104FCF7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{22D3E56F-603B-425B-990B-0DB508C613EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22D3E56F-603B-425B-990B-0DB508C613EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22D3E56F-603B-425B-990B-0DB508C613EA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{60422492-3657-47AF-BC67-C95AF0BC98CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{60422492-3657-47AF-BC67-C95AF0BC98CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{60422492-3657-47AF-BC67-C95AF0BC98CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{60422492-3657-47AF-BC67-C95AF0BC98CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFF916CA-3675-4071-9C64-0490104FCF7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFF916CA-3675-4071-9C64-0490104FCF7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFF916CA-3675-4071-9C64-0490104FCF7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFF916CA-3675-4071-9C64-0490104FCF7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
