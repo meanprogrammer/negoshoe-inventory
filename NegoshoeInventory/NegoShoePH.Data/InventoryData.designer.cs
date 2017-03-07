@@ -86,7 +86,13 @@ namespace NegoShoePH.Data
 		
 		private string _Description;
 		
-		private int _Quantity;
+		private int _TotalQuantity;
+		
+		private int _OfficeQuantity;
+		
+		private int _HouseQuantity;
+		
+		private string _ImageUrl;
 		
 		private string _Remarks;
 		
@@ -100,8 +106,14 @@ namespace NegoShoePH.Data
     partial void OnItemNameChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
-    partial void OnQuantityChanging(int value);
-    partial void OnQuantityChanged();
+    partial void OnTotalQuantityChanging(int value);
+    partial void OnTotalQuantityChanged();
+    partial void OnOfficeQuantityChanging(int value);
+    partial void OnOfficeQuantityChanged();
+    partial void OnHouseQuantityChanging(int value);
+    partial void OnHouseQuantityChanged();
+    partial void OnImageUrlChanging(string value);
+    partial void OnImageUrlChanged();
     partial void OnRemarksChanging(string value);
     partial void OnRemarksChanged();
     #endregion
@@ -171,22 +183,82 @@ namespace NegoShoePH.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int NOT NULL")]
-		public int Quantity
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalQuantity", DbType="Int NOT NULL")]
+		public int TotalQuantity
 		{
 			get
 			{
-				return this._Quantity;
+				return this._TotalQuantity;
 			}
 			set
 			{
-				if ((this._Quantity != value))
+				if ((this._TotalQuantity != value))
 				{
-					this.OnQuantityChanging(value);
+					this.OnTotalQuantityChanging(value);
 					this.SendPropertyChanging();
-					this._Quantity = value;
-					this.SendPropertyChanged("Quantity");
-					this.OnQuantityChanged();
+					this._TotalQuantity = value;
+					this.SendPropertyChanged("TotalQuantity");
+					this.OnTotalQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OfficeQuantity", DbType="Int NOT NULL")]
+		public int OfficeQuantity
+		{
+			get
+			{
+				return this._OfficeQuantity;
+			}
+			set
+			{
+				if ((this._OfficeQuantity != value))
+				{
+					this.OnOfficeQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._OfficeQuantity = value;
+					this.SendPropertyChanged("OfficeQuantity");
+					this.OnOfficeQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HouseQuantity", DbType="Int NOT NULL")]
+		public int HouseQuantity
+		{
+			get
+			{
+				return this._HouseQuantity;
+			}
+			set
+			{
+				if ((this._HouseQuantity != value))
+				{
+					this.OnHouseQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._HouseQuantity = value;
+					this.SendPropertyChanged("HouseQuantity");
+					this.OnHouseQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageUrl", DbType="NVarChar(500)")]
+		public string ImageUrl
+		{
+			get
+			{
+				return this._ImageUrl;
+			}
+			set
+			{
+				if ((this._ImageUrl != value))
+				{
+					this.OnImageUrlChanging(value);
+					this.SendPropertyChanging();
+					this._ImageUrl = value;
+					this.SendPropertyChanged("ImageUrl");
+					this.OnImageUrlChanged();
 				}
 			}
 		}

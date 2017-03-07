@@ -17,7 +17,7 @@ namespace NegoShoePH.DataTest
             context.Items.InsertOnSubmit(
                 new Item() { 
                     ItemName = "Jordan 2 Wings Breds",
-                    Quantity = 10,
+                    TotalQuantity = 10,
                     Description = string.Empty,
                     Remarks = string.Empty
                 }
@@ -37,7 +37,9 @@ namespace NegoShoePH.DataTest
         {
             Item i = new Item();
             i.ItemName = "Jordan Banned Breds Snapback";
-            i.Quantity = 5;
+            i.OfficeQuantity = 1;
+            i.HouseQuantity = 4;
+            i.TotalQuantity = i.OfficeQuantity + i.HouseQuantity;
 
             context.Items.InsertOnSubmit(i);
             var count = context.GetChangeSet().Inserts.Count;
