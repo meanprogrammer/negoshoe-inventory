@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NegoShoePH.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,15 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
 {
     public class HomeController : Controller
     {
+        ItemData data;
+        public HomeController() {
+            data = new ItemData();
+        }
+
         public ActionResult Index()
         {
-            return View();
+            List<Item> items = data.GetAllItem();
+            return View(items);
         }
 
         public ActionResult About()
