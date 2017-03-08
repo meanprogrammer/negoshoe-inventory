@@ -1,41 +1,41 @@
-﻿@Model List<NegoShoePH.Data.Item>
+﻿
 
-@{
-    ViewBag.Title = "Home Page";
-}
+    @{
+        ViewBag.Title = "Home Page";
+    }
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            <h1>Hello World!</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1>Hello World!</h1>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            <input type="button" id="additem" name="additem" class="btn btn-primary btn-md"  value="Add Item"/>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <input type="button" id="additem" name="additem" class="btn btn-primary btn-md" value="Add Item" />
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <table class="table table-bordered table-striped">
-            <tr>
-                <th>Item Name</th>
-                <th>Description</th>
-                <th>Total Qty.</th>
-                <th>Qty in Office</th>
-                <th>Qty in Laguna</th>
-            </tr>
-            @foreach (var item in @Model)
-            {
+        <div class="row">
+            <table class="table table-bordered table-striped">
                 <tr>
-                    <td>@item.ItemName</td>
-                    <td>@item.Description</td>
-                    <td>@item.TotalQuantity</td>
-                    <td>@item.OfficeQuantity</td>
-                    <td>@item.HouseQuantity</td>
+                    <th>Item Name</th>
+                    <th>Description</th>
+                    <th>Total Qty.</th>
+                    <th>Qty in Office</th>
+                    <th>Qty in Laguna</th>
                 </tr>
-            }
-        </table>
+                @foreach (var item in @Model)
+                {
+                    <tr>
+                        <td>@item.ItemName</td>
+                        <td>@item.Description</td>
+                        <td>@item.TotalQuantity</td>
+                        <td>@item.OfficeQuantity</td>
+                        <td>@item.HouseQuantity</td>
+                    </tr>
+                }
+            </table>
 
+        </div>
     </div>
-</div>
 
