@@ -41,7 +41,8 @@
 
     @foreach (var item in @Model)
     {
-        <div class="row">
+        <div class="row item-container">
+
             <div class="col-md-5 col-lg-5 col-sm-5">
                 <img class="img-fluid" src="@item.ImageUrl" />
             </div>
@@ -53,7 +54,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12">
-                       @item.Description
+                        @item.Description
                     </div>
                 </div>
                 <div class="row">
@@ -72,6 +73,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     }
 </div>
