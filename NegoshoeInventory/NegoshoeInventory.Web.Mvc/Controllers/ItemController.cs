@@ -35,7 +35,7 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
 
         // POST: Item/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection, HttpPostedFileBase ImageUrl)
+        public ActionResult Create(Item item, HttpPostedFileBase ImageUrl)
         {
             try
             {
@@ -43,13 +43,14 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
                 var ext = Path.GetExtension(ImageUrl.FileName);
                 var filename = Path.GetFileNameWithoutExtension(ImageUrl.FileName);
                 var completeFilename = string.Format("{0}_{1}{2}", filename, Guid.NewGuid().ToString(), ext);
-                var uploadspath = Server.MapPath("uploads");
-                ImageUrl.SaveAs(string.Format("{0}\\{1}",uploadspath,completeFilename));
+                var uploadspath = Server.MapPath("~/uploads");
+                var fullPath = string.Format("{0}\\{1}", uploadspath, completeFilename);
 
-                Item i = new Item();
+                ImageUrl.SaveAs(fullPath);
+                item.ImageUrl = string.Format("/uploads/{0}", completeFilename);
+                data.SaveItem(item);
 
-
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             catch
             {
