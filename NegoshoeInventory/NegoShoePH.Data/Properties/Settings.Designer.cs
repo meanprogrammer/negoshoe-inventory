@@ -26,10 +26,24 @@ namespace NegoShoePH.Data.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQL2012;Initial Catalog=NegoShoeInventory;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=ffdfa40e-f8a0-463e-8261-a73600cf33c0.sqlserver.sequelizer.com;Database=dbf" +
+            "fdfa40ef8a0463e8261a73600cf33c0;User ID=ksaizignkybiwsan;Password=Xa3ewN3VujdtXc" +
+            "rpPHEGgAEMRr8NeHKAXh3civBTXm8Uq4RxNVMsmzzwBouePnQT;")]
         public string NegoShoeInventoryConnectionString {
             get {
                 return ((string)(this["NegoShoeInventoryConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ffdfa40e-f8a0-463e-8261-a73600cf33c0.sqlserver.sequelizer.com;Persist" +
+            " Security Info=True;User ID=ksaizignkybiwsan;Password=Xa3ewN3VujdtXcrpPHEGgAEMRr" +
+            "8NeHKAXh3civBTXm8Uq4RxNVMsmzzwBouePnQT")]
+        public string DataSourceConnectionString {
+            get {
+                return ((string)(this["DataSourceConnectionString"]));
             }
         }
     }

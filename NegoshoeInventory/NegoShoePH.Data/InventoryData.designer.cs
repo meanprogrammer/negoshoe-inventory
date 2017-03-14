@@ -22,7 +22,7 @@ namespace NegoShoePH.Data
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="NegoShoeInventory")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DataSource")]
 	public partial class InventoryDataDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -36,7 +36,7 @@ namespace NegoShoePH.Data
     #endregion
 		
 		public InventoryDataDataContext() : 
-				base(global::NegoShoePH.Data.Properties.Settings.Default.NegoShoeInventoryConnectionString, mappingSource)
+				base(global::NegoShoePH.Data.Properties.Settings.Default.DataSourceConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

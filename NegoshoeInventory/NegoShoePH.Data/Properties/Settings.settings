@@ -5,10 +5,18 @@
     <Setting Name="NegoShoeInventoryConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=.\SQL2012;Initial Catalog=NegoShoeInventory;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Server=ffdfa40e-f8a0-463e-8261-a73600cf33c0.sqlserver.sequelizer.com;Database=dbffdfa40ef8a0463e8261a73600cf33c0;User ID=ksaizignkybiwsan;Password=Xa3ewN3VujdtXcrpPHEGgAEMRr8NeHKAXh3civBTXm8Uq4RxNVMsmzzwBouePnQT;&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=.\SQL2012;Initial Catalog=NegoShoeInventory;Integrated Security=True</Value>
+      <Value Profile="(Default)">Server=ffdfa40e-f8a0-463e-8261-a73600cf33c0.sqlserver.sequelizer.com;Database=dbffdfa40ef8a0463e8261a73600cf33c0;User ID=ksaizignkybiwsan;Password=Xa3ewN3VujdtXcrpPHEGgAEMRr8NeHKAXh3civBTXm8Uq4RxNVMsmzzwBouePnQT;</Value>
+    </Setting>
+    <Setting Name="DataSourceConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=ffdfa40e-f8a0-463e-8261-a73600cf33c0.sqlserver.sequelizer.com;Persist Security Info=True;User ID=ksaizignkybiwsan;Password=Xa3ewN3VujdtXcrpPHEGgAEMRr8NeHKAXh3civBTXm8Uq4RxNVMsmzzwBouePnQT&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=ffdfa40e-f8a0-463e-8261-a73600cf33c0.sqlserver.sequelizer.com;Persist Security Info=True;User ID=ksaizignkybiwsan;Password=Xa3ewN3VujdtXcrpPHEGgAEMRr8NeHKAXh3civBTXm8Uq4RxNVMsmzzwBouePnQT</Value>
     </Setting>
   </Settings>
 </SettingsFile>
