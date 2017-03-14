@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NegoShoePH.Entity", "NegoSh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NegoShoePH.DataTest", "NegoShoePH.DataTest\NegoShoePH.DataTest.csproj", "{CFF916CA-3675-4071-9C64-0490104FCF7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NegoshoeInventory.Web.Asp", "NegoshoeInventory.Web.Asp\NegoshoeInventory.Web.Asp.csproj", "{C6DA652B-5184-4FFC-84AA-CB6880D29B56}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NegoshoeInventory.Web.Mvc", "NegoshoeInventory.Web.Mvc\NegoshoeInventory.Web.Mvc.csproj", "{405BC0E8-3467-4407-AE03-8F4BBBAE1521}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{CFF916CA-3675-4071-9C64-0490104FCF7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFF916CA-3675-4071-9C64-0490104FCF7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFF916CA-3675-4071-9C64-0490104FCF7C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C6DA652B-5184-4FFC-84AA-CB6880D29B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C6DA652B-5184-4FFC-84AA-CB6880D29B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C6DA652B-5184-4FFC-84AA-CB6880D29B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C6DA652B-5184-4FFC-84AA-CB6880D29B56}.Release|Any CPU.Build.0 = Release|Any CPU
 		{405BC0E8-3467-4407-AE03-8F4BBBAE1521}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{405BC0E8-3467-4407-AE03-8F4BBBAE1521}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{405BC0E8-3467-4407-AE03-8F4BBBAE1521}.Release|Any CPU.ActiveCfg = Release|Any CPU
