@@ -2,6 +2,13 @@
 
 @{
     ViewBag.Title = "Index";
+    if (ViewBag["error"] != null)
+    { 
+        var err = ViewBag["error"] ;
+        <div>
+            err.Message;
+            </div>
+    }
 }
 
 <h2>Index</h2>

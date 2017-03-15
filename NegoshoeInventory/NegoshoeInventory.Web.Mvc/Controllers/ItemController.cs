@@ -52,8 +52,9 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
-            catch
+            catch(Exception e)
             {
+                ViewBag["error"] = e;
                 return View();
             }
         }
