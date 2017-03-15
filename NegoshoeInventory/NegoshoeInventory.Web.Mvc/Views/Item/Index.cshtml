@@ -6,6 +6,10 @@
 
 <h2>Index</h2>
 
+   @if (ViewBag.Exception != null)
+    { 
+        <h6>@ViewBag.Exception</h6>
+    }
 
 @using (Html.BeginForm("Create", "Item", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
