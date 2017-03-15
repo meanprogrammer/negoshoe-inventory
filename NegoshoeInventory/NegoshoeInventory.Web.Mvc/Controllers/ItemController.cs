@@ -52,12 +52,14 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
-            catch(Exception e)
+            catch(Exception ex)
             {
-                ViewBag["error"] = e;
-                return View();
+                //ModelState.AddModelError(string.Empty, ex.Message);
+                ViewBag.Exception = ex.Message;                
             }
+            return View();
         }
+
 
         // GET: Item/Edit/5
         public ActionResult Edit(int id)

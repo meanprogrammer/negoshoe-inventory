@@ -2,18 +2,10 @@
 
 @{
     ViewBag.Title = "Index";
-    if (ViewBag["error"] != null)
-    { 
-        var err = ViewBag["error"] ;
-        <div>
-            err.Message;
-            </div>
-    }
 }
 
 <h2>Index</h2>
-
-
+<h6>@ViewBag.Exception</h6>
 @using (Html.BeginForm("Create", "Item", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
