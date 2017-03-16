@@ -46,7 +46,7 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
                 var uploadspath = Server.MapPath("~/uploads");
                 var fullPath = string.Format("{0}\\{1}", uploadspath, completeFilename);
 
-                ImageUrl.SaveAs(fullPath);
+                //ImageUrl.SaveAs(fullPath);
                 item.ImageUrl = string.Format("/uploads/{0}", completeFilename);
                 data.SaveItem(item);
 
