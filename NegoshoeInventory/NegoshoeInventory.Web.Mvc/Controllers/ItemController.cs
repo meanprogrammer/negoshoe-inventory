@@ -48,7 +48,7 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
 
                 ViewBag.path = fullPath;
 
-                ImageUrl.SaveAs(fullPath);
+                //ImageUrl.SaveAs(fullPath);
                 item.ImageUrl = string.Format("/App_Data/uploads/{0}", completeFilename);
                 data.SaveItem(item);
 
