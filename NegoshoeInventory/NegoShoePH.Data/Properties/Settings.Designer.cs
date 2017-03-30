@@ -46,5 +46,15 @@ namespace NegoShoePH.Data.Properties {
                 return ((string)(this["DataSourceConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQL2012;Initial Catalog=NegoShoeInventory;Integrated Security=True")]
+        public string NegoShoeInventoryConnectionString1 {
+            get {
+                return ((string)(this["NegoShoeInventoryConnectionString1"]));
+            }
+        }
     }
 }

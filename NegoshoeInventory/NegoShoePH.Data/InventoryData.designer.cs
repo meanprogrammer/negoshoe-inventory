@@ -22,7 +22,7 @@ namespace NegoShoePH.Data
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DataSource")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="NegoShoeInventory")]
 	public partial class InventoryDataDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -33,10 +33,13 @@ namespace NegoShoePH.Data
     partial void InsertItem(Item instance);
     partial void UpdateItem(Item instance);
     partial void DeleteItem(Item instance);
+    partial void InsertItemWithImage(ItemWithImage instance);
+    partial void UpdateItemWithImage(ItemWithImage instance);
+    partial void DeleteItemWithImage(ItemWithImage instance);
     #endregion
 		
 		public InventoryDataDataContext() : 
-				base(global::NegoShoePH.Data.Properties.Settings.Default.DataSourceConnectionString, mappingSource)
+				base(global::NegoShoePH.Data.Properties.Settings.Default.NegoShoeInventoryConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -72,6 +75,14 @@ namespace NegoShoePH.Data
 				return this.GetTable<Item>();
 			}
 		}
+		
+		public System.Data.Linq.Table<ItemWithImage> ItemWithImages
+		{
+			get
+			{
+				return this.GetTable<ItemWithImage>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Items")]
@@ -92,7 +103,9 @@ namespace NegoShoePH.Data
 		
 		private int _HouseQuantity;
 		
-		private string _ImageUrl;
+		private string _Filename;
+		
+		private System.Data.Linq.Binary _Image;
 		
 		private string _Remarks;
 		
@@ -112,8 +125,10 @@ namespace NegoShoePH.Data
     partial void OnOfficeQuantityChanged();
     partial void OnHouseQuantityChanging(int value);
     partial void OnHouseQuantityChanged();
-    partial void OnImageUrlChanging(string value);
-    partial void OnImageUrlChanged();
+    partial void OnFilenameChanging(string value);
+    partial void OnFilenameChanged();
+    partial void OnImageChanging(System.Data.Linq.Binary value);
+    partial void OnImageChanged();
     partial void OnRemarksChanging(string value);
     partial void OnRemarksChanged();
     #endregion
@@ -243,22 +258,42 @@ namespace NegoShoePH.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageUrl", DbType="NVarChar(500)")]
-		public string ImageUrl
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Filename", DbType="NVarChar(50)")]
+		public string Filename
 		{
 			get
 			{
-				return this._ImageUrl;
+				return this._Filename;
 			}
 			set
 			{
-				if ((this._ImageUrl != value))
+				if ((this._Filename != value))
 				{
-					this.OnImageUrlChanging(value);
+					this.OnFilenameChanging(value);
 					this.SendPropertyChanging();
-					this._ImageUrl = value;
-					this.SendPropertyChanged("ImageUrl");
-					this.OnImageUrlChanged();
+					this._Filename = value;
+					this.SendPropertyChanged("Filename");
+					this.OnFilenameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
 				}
 			}
 		}
@@ -279,6 +314,164 @@ namespace NegoShoePH.Data
 					this._Remarks = value;
 					this.SendPropertyChanged("Remarks");
 					this.OnRemarksChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ItemWithImage")]
+	public partial class ItemWithImage : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _RecordID;
+		
+		private string _Name;
+		
+		private string _Filename;
+		
+		private string _Extension;
+		
+		private System.Data.Linq.Binary _Image;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRecordIDChanging(int value);
+    partial void OnRecordIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnFilenameChanging(string value);
+    partial void OnFilenameChanged();
+    partial void OnExtensionChanging(string value);
+    partial void OnExtensionChanged();
+    partial void OnImageChanging(System.Data.Linq.Binary value);
+    partial void OnImageChanged();
+    #endregion
+		
+		public ItemWithImage()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecordID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int RecordID
+		{
+			get
+			{
+				return this._RecordID;
+			}
+			set
+			{
+				if ((this._RecordID != value))
+				{
+					this.OnRecordIDChanging(value);
+					this.SendPropertyChanging();
+					this._RecordID = value;
+					this.SendPropertyChanged("RecordID");
+					this.OnRecordIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Filename", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Filename
+		{
+			get
+			{
+				return this._Filename;
+			}
+			set
+			{
+				if ((this._Filename != value))
+				{
+					this.OnFilenameChanging(value);
+					this.SendPropertyChanging();
+					this._Filename = value;
+					this.SendPropertyChanged("Filename");
+					this.OnFilenameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Extension", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Extension
+		{
+			get
+			{
+				return this._Extension;
+			}
+			set
+			{
+				if ((this._Extension != value))
+				{
+					this.OnExtensionChanging(value);
+					this.SendPropertyChanging();
+					this._Extension = value;
+					this.SendPropertyChanged("Extension");
+					this.OnExtensionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarBinary(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
 				}
 			}
 		}
