@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace NegoShoePH.Entity
 {
+    /*
     public class Item
     {
         public int RecordID { get; set; }
@@ -16,4 +17,5 @@ namespace NegoShoePH.Entity
         public int OfficeQty { get; set; }
         public string Remarks { get; set; }
     }
+     * */
 }

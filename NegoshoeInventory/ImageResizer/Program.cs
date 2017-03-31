@@ -16,7 +16,7 @@ namespace ImageResizer
         {
             string outputPath = @"C:\Users\vd2\OUTPUT_IMG\";
             string path = @"C:\Users\vd2\Pleiades_large.jpg";
-            Test(path);
+            ImageResizeHelper.ProcessResizeImage(path);
             GetImageAndSave(outputPath);
 
         }
@@ -42,45 +42,10 @@ namespace ImageResizer
             }
         }
 
-        public static void Test(string path)
-        {
-            string filenName = Path.GetFileName(path);
-            string extensionName = Path.GetExtension(path);
+  
 
-            using (var image = Image.FromFile(path))
-            using (var newImage = ScaleImage(image, 500, 500))
-            {
-                byte[] byts = imageToByteArray(newImage);
-                //newImage.Save(@"C:\Users\vd2\Pleiades_large_NEW.jpg", ImageFormat.Png);
-                SaveImageToDatabase(byts, filenName, extensionName);
-            }
-        }
+       
 
-        public static Image ScaleImage(Image image, int maxWidth, int maxHeight)
-        {
-            var ratioX = (double)maxWidth / image.Width;
-            var ratioY = (double)maxHeight / image.Height;
-            var ratio = Math.Min(ratioX, ratioY);
-
-            var newWidth = (int)(image.Width * ratio);
-            var newHeight = (int)(image.Height * ratio);
-
-            var newImage = new Bitmap(newWidth, newHeight);
-
-            using (var graphics = Graphics.FromImage(newImage))
-                graphics.DrawImage(image, 0, 0, newWidth, newHeight);
-
-            return newImage;
-        }
-
-        public static byte[] imageToByteArray(System.Drawing.Image image)
-        {
-            using (var ms = new MemoryStream())
-            {
-                image.Save(ms, ImageFormat.Jpeg);
-                return ms.ToArray();
-            }
-        }
 
 
         public static bool SaveImageToDatabase(byte[] img, string filename, string extension)

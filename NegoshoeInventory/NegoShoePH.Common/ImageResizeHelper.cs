@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ImageResizer
+namespace NegoShoePH.Common
 {
     public static class ImageResizeHelper
     {
@@ -17,6 +17,17 @@ namespace ImageResizer
             string extensionName = Path.GetExtension(path);
 
             using (var image = Image.FromFile(path))
+            using (var newImage = ScaleImage(image, 500, 500))
+            {
+                return imageToByteArray(newImage);
+            }
+        }
+
+
+        public static byte[] ProcessResizeImage(Stream input)
+        {
+
+            using (var image = Image.FromStream(input))
             using (var newImage = ScaleImage(image, 500, 500))
             {
                 return imageToByteArray(newImage);

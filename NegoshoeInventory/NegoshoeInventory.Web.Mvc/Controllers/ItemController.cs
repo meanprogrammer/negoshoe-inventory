@@ -1,4 +1,5 @@
-﻿using NegoShoePH.Data;
+﻿using NegoShoePH.Common;
+using NegoShoePH.Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -47,12 +48,13 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
                 var uploadspath = Server.MapPath("~/App_Data/uploads");
                 var fullPath = Path.Combine(uploadspath, completeFilename);
 
-                ViewBag.path = fullPath;
                 if (Filename != null)
                 {
-                    byte[] imgBinary = ReadFully(Filename.InputStream);
+                    byte[] imgBinary = ImageResizeHelper.ProcessResizeImage(Filename.InputStream);
                     item.Image = new System.Data.Linq.Binary(imgBinary);
+                    var base64image = Convert.ToBase64String(imgBinary);
                     item.Filename = filename;
+                    item.ImageBase64 = base64image;
                 }
 
                 data.SaveItem(item);
