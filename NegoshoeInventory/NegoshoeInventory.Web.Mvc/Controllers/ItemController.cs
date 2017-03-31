@@ -11,7 +11,8 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
     public class ItemController : Controller
     {
         ItemData data;
-        public ItemController() {
+        public ItemController()
+        {
             data = new ItemData();
         }
 
@@ -35,33 +36,46 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
 
         // POST: Item/Create
         [HttpPost]
-        public ActionResult Create(Item item, HttpPostedFileBase ImageUrl)
+        public ActionResult Create(Item item, HttpPostedFileBase Filename)
         {
             try
             {
                 var files = Request.Files;
-                var ext = Path.GetExtension(ImageUrl.FileName);
-                var filename = Path.GetFileNameWithoutExtension(ImageUrl.FileName);
+                var ext = Path.GetExtension(Filename.FileName);
+                var filename = Path.GetFileNameWithoutExtension(Filename.FileName);
                 var completeFilename = string.Format("{0}_{1}{2}", filename, Guid.NewGuid().ToString(), ext);
                 var uploadspath = Server.MapPath("~/App_Data/uploads");
                 var fullPath = Path.Combine(uploadspath, completeFilename);
 
                 ViewBag.path = fullPath;
+                if (Filename != null)
+                {
+                    byte[] imgBinary = ReadFully(Filename.InputStream);
+                    item.Image = new System.Data.Linq.Binary(imgBinary);
+                    item.Filename = filename;
+                }
 
-                //ImageUrl.SaveAs(fullPath);
-                item.ImageUrl = string.Format("/App_Data/uploads/{0}", completeFilename);
                 data.SaveItem(item);
 
                 return RedirectToAction("Index", "Home");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //ModelState.AddModelError(string.Empty, ex.Message);
-                ViewBag.Exception = ex.Message;                
+                ViewBag.Exception = ex.Message;
             }
             return View();
         }
 
+
+        public static byte[] ReadFully(Stream input)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                input.CopyTo(ms);
+                return ms.ToArray();
+            }
+        }
 
         // GET: Item/Edit/5
         public ActionResult Edit(int id)
