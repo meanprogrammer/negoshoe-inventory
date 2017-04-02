@@ -5,6 +5,7 @@ using System.Data.Linq;
 
 namespace NegoShoePH.DataTest
 {
+    /*
     [TestClass]
     public class UnitTest1
     {
@@ -59,4 +60,5 @@ namespace NegoShoePH.DataTest
             }
         }
     }
+     * */
 }
