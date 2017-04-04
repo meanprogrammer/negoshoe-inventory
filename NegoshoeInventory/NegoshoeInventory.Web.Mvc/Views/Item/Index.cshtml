@@ -89,4 +89,11 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("input[name='OfficeQuantity']").TouchSpin({
+                verticalbuttons: true
+            });
+        });
+    </script>
 }
