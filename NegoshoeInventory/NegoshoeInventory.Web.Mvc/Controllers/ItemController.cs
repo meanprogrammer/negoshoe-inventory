@@ -52,7 +52,7 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
                 if (Filename != null)
                 {
                     byte[] imgBinary = ImageResizeHelper.ProcessResizeImage(Filename.InputStream);
-                    item.Image = new System.Data.Linq.Binary(imgBinary);
+                    //item.Image = new System.Data.Linq.Binary(imgBinary);
                     var base64image = Convert.ToBase64String(imgBinary);
                     item.Filename = filename;
                     item.ImageBase64 = base64image;
@@ -83,17 +83,18 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
         // GET: Item/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var record = data.GetOne(id);
+            return View(record);
         }
 
         // POST: Item/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Item item)
         {
             try
             {
-                // TODO: Add update logic here
-
+                // TODO:     update logic here
+                data.UpdateItem(item, id);
                 return RedirectToAction("Index");
             }
             catch

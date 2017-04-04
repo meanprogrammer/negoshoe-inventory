@@ -13,6 +13,11 @@ namespace NegoShoePH.Data
             context = new InventoryDataDataContext();
         }
 
+        public Item GetOne(int id) 
+        {
+            return context.Items.Where(c => c.RecordID == id).FirstOrDefault();
+        }
+
         public List<Item> GetAllItem()
         {
             return context.Items.ToList();
@@ -28,15 +33,21 @@ namespace NegoShoePH.Data
 
         public bool UpdateItem(Item i, int recordId)
         {
-            var record = context.Items.Where(c=>c.RecordID == recordId).FirstOrDefault();
+            Item record = context.Items.Single(c=>c.RecordID == recordId);
 
             if(record == null) { return false; }
 
-            record = i;
+            if (record.ItemName != i.ItemName) { record.ItemName = i.ItemName; }
+            if (record.OfficeQuantity != i.OfficeQuantity) { record.OfficeQuantity = i.OfficeQuantity; }
+            if (record.TotalQuantity != i.TotalQuantity) { record.TotalQuantity = i.TotalQuantity; }
+            if (record.HouseQuantity != i.HouseQuantity) { record.HouseQuantity = i.HouseQuantity; }
+            if (record.ImageBase64 != i.ImageBase64) { record.ImageBase64 = i.ImageBase64; }
+            if (record.Description != i.Description) { record.Description = i.Description; }
+            if (record.Filename != i.Filename) { record.Filename = i.Filename; }
+            if (record.Remarks != i.Remarks) { record.Remarks = i.Remarks; }
             record.RecordID = recordId;
 
             int result = context.GetChangeSet().Updates.Count;
-
             context.SubmitChanges();
             return result > 0;
         }
