@@ -25,5 +25,34 @@ namespace NegoShoePH.Data
             context.SubmitChanges();
             return result > 0;
         }
+
+        public bool UpdateItem(Item i, int recordId)
+        {
+            var record = context.Items.Where(c=>c.RecordID == recordId).FirstOrDefault();
+
+            if(record == null) { return false; }
+
+            record = i;
+            record.RecordID = recordId;
+
+            int result = context.GetChangeSet().Updates.Count;
+
+            context.SubmitChanges();
+            return result > 0;
+        }
+
+        public bool DeleteItem(int recordId)
+        {
+            var record = context.Items.Where(c => c.RecordID == recordId).FirstOrDefault();
+
+            if (record == null) { return false; }
+
+            context.Items.DeleteOnSubmit(record);
+
+            int result = context.GetChangeSet().Deletes.Count;
+
+            context.SubmitChanges();
+            return result > 0;
+        }
     }
 }

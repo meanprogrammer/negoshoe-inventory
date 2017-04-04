@@ -20,7 +20,8 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
         // GET: Item
         public ActionResult Index()
         {
-            return View();
+            List<Item> items = data.GetAllItem();
+            return View(items);
         }
 
         // GET: Item/Details/5
@@ -59,7 +60,7 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
 
                 data.SaveItem(item);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Item");
             }
             catch (Exception ex)
             {
@@ -104,7 +105,8 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
         // GET: Item/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            data.DeleteItem(id);
+            return View("Index");
         }
 
         // POST: Item/Delete/5

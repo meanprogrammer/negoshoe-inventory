@@ -26,9 +26,8 @@ namespace NegoShoePH.Data.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=ffdfa40e-f8a0-463e-8261-a73600cf33c0.sqlserver.sequelizer.com;Database=dbf" +
-            "fdfa40ef8a0463e8261a73600cf33c0;User ID=ksaizignkybiwsan;Password=Xa3ewN3VujdtXc" +
-            "rpPHEGgAEMRr8NeHKAXh3civBTXm8Uq4RxNVMsmzzwBouePnQT;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ffdfa40e-f8a0-463e-8261-a73600cf33c0.sqlserver.sequelizer.com;Initial" +
+            " Catalog=dbffdfa40ef8a0463e8261a73600cf33c0;User ID=ksaizignkybiwsan")]
         public string NegoShoeInventoryConnectionString {
             get {
                 return ((string)(this["NegoShoeInventoryConnectionString"]));
@@ -54,6 +53,28 @@ namespace NegoShoePH.Data.Properties {
         public string NegoShoeInventoryConnectionString1 {
             get {
                 return ((string)(this["NegoShoeInventoryConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=ffdfa40e-f8a0-463e-8261-a73600cf33c0.sqlserver.sequelizer.com;Database=dbf" +
+            "fdfa40ef8a0463e8261a73600cf33c0;User ID=ksaizignkybiwsan;Password=Xa3ewN3VujdtXc" +
+            "rpPHEGgAEMRr8NeHKAXh3civBTXm8Uq4RxNVMsmzzwBouePnQT;")]
+        public string PROD {
+            get {
+                return ((string)(this["PROD"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQL2012;Initial Catalog=NegoShoeInventory;Integrated Security=True")]
+        public string DEV {
+            get {
+                return ((string)(this["DEV"]));
             }
         }
     }

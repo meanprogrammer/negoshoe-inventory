@@ -1,99 +1,83 @@
-﻿@model NegoShoePH.Data.Item
+﻿@model IEnumerable<NegoShoePH.Data.Item>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Items";
 }
 
 <h2>Index</h2>
 
-   @if (ViewBag.Exception != null)
-    { 
-        <h6>@ViewBag.Exception</h6>
-    }
+<p><a href="~/Item/Create">
+    <input type="button" id="additem" name="additem" class="btn btn-primary btn-md" value="Add Item" />
+</a>
+</p>
+<div class="container-fluid">
+    <div class="row">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>Total Qty.</th>
+                <th>Qty in Office</th>
+                <th>Qty in Laguna</th>
+            </tr>
+            @if (@Model != null) { 
+                foreach (var item in @Model)
+                {
+                    <tr>
+                        <td>@item.ItemName</td>
+                        <td>@item.Description</td>
+                        <td>@item.TotalQuantity</td>
+                        <td>@item.OfficeQuantity</td>
+                        <td>@item.HouseQuantity</td>
+                    </tr>
+                }
+            }             
+        </table>
 
-@using (Html.BeginForm("Create", "Item", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Item</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.ItemName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ItemName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TotalQuantity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TotalQuantity, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TotalQuantity, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.OfficeQuantity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.OfficeQuantity, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OfficeQuantity, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.HouseQuantity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.HouseQuantity, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HouseQuantity, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Filename, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Filename, new { htmlAttributes = new { @class = "form-control", type = "file" } })
-                @Html.ValidationMessageFor(model => model.Filename, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+
+    @foreach (var item in @Model)
+    {
+        <div class="row item-container">
+
+            <div class="col-md-5 col-lg-5 col-sm-5">
+                <img alt="Embedded Image" class="img-thumbnail" src="data:image/jpg;base64,@item.ImageBase64" />
+            </div>
+            <div class="col-md-7 col-lg-7 col-sm-7">
+                <table class="table">
+                    <tr>
+                        <td>Name : </td>
+                        <td>@item.ItemName</td>
+                    </tr>
+                    <tr>
+                        <td>Description : </td>
+                        <td>@item.Description</td>
+                    </tr>
+                    <tr>
+                        <td>Total Quantity : </td>
+                        <td>@item.TotalQuantity</td>
+                    </tr>
+                    <tr>
+                        <td>Quantity in Office : </td>
+                        <td>@item.OfficeQuantity</td>
+                    </tr>
+                    <tr>
+                        <td>Quantity in Laguna : </td>
+                        <td>@item.HouseQuantity</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.RecordID }, new { @class = "btn btn-sm btn-primary" }) 
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RecordID }, new { @class = "btn btn-sm btn-danger" })
+                           <!-- @Html.ActionLink("Details", "Details", new { id = item.RecordID }) |-->
+                            
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    }
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("input[name='OfficeQuantity']").TouchSpin({
-                verticalbuttons: true
-            });
-        });
-    </script>
-}
