@@ -12,7 +12,7 @@
 </p>
 <div class="container-fluid">
     <div class="row">
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped table-responsive table-sm">
             <tr>
                 <th>Item Name</th>
                 <th>Description</th>
@@ -44,8 +44,8 @@
                 <div class="col-md-5 col-lg-5 col-sm-5">
                     <img alt="Embedded Image" class="img-thumbnail" src="data:image/jpg;base64,@item.ImageBase64" />
                 </div>
-                <div class="col-md-7 col-lg-7 col-sm-7">
-                    <table class="table">
+                <div class="col-md-7 col-lg-7 hidden-sm-down">
+                    <table class="table table-responsive table-sm">
                         <tr>
                             <td>Name : </td>
                             <td>@item.ItemName</td>
@@ -76,7 +76,7 @@
                         </tr>
                     </table>
                 </div>
-
+                <div class="col-sm-7 hidden-md-up">Small View</div>
             </div>
         }
     }
