@@ -39,7 +39,7 @@ namespace NegoShoePH.Data
     #endregion
 		
 		public InventoryDataDataContext() : 
-				base(global::NegoShoePH.Data.Properties.Settings.Default.PROD, mappingSource)
+				base(global::NegoShoePH.Data.Properties.Settings.Default.NegoShoeInventoryConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
