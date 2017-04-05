@@ -36,48 +36,49 @@
 
     </div>
 
+    @if (Model != null) { 
+        foreach (var item in @Model)
+        {
+            <div class="row item-container">
 
-    @foreach (var item in @Model)
-    {
-        <div class="row item-container">
-
-            <div class="col-md-5 col-lg-5 col-sm-5">
-                <img alt="Embedded Image" class="img-thumbnail" src="data:image/jpg;base64,@item.ImageBase64" />
-            </div>
-            <div class="col-md-7 col-lg-7 col-sm-7">
-                <table class="table">
-                    <tr>
-                        <td>Name : </td>
-                        <td>@item.ItemName</td>
-                    </tr>
-                    <tr>
-                        <td>Description : </td>
-                        <td>@item.Description</td>
-                    </tr>
-                    <tr>
-                        <td>Total Quantity : </td>
-                        <td>@item.TotalQuantity</td>
-                    </tr>
-                    <tr>
-                        <td>Quantity in Office : </td>
-                        <td>@item.OfficeQuantity</td>
-                    </tr>
-                    <tr>
-                        <td>Quantity in Laguna : </td>
-                        <td>@item.HouseQuantity</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.RecordID }, new { @class = "btn btn-sm btn-primary" }) 
-                            @Html.ActionLink("Delete", "Delete", new { id = item.RecordID }, new { @class = "btn btn-sm btn-danger" })
-                           <!-- @Html.ActionLink("Details", "Details", new { id = item.RecordID }) |-->
+                <div class="col-md-5 col-lg-5 col-sm-5">
+                    <img alt="Embedded Image" class="img-thumbnail" src="data:image/jpg;base64,@item.ImageBase64" />
+                </div>
+                <div class="col-md-7 col-lg-7 col-sm-7">
+                    <table class="table">
+                        <tr>
+                            <td>Name : </td>
+                            <td>@item.ItemName</td>
+                        </tr>
+                        <tr>
+                            <td>Description : </td>
+                            <td>@item.Description</td>
+                        </tr>
+                        <tr>
+                            <td>Total Quantity : </td>
+                            <td>@item.TotalQuantity</td>
+                        </tr>
+                        <tr>
+                            <td>Quantity in Office : </td>
+                            <td>@item.OfficeQuantity</td>
+                        </tr>
+                        <tr>
+                            <td>Quantity in Laguna : </td>
+                            <td>@item.HouseQuantity</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.RecordID }, new { @class = "btn btn-sm btn-primary" }) 
+                                @Html.ActionLink("Delete", "Delete", new { id = item.RecordID }, new { @class = "btn btn-sm btn-danger" })
+                               <!-- @Html.ActionLink("Details", "Details", new { id = item.RecordID }) |-->
                             
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
 
-        </div>
+            </div>
+        }
     }
 </div>
 

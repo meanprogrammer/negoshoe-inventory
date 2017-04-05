@@ -28,7 +28,7 @@ namespace NegoShoePH.Common
         {
 
             using (var image = Image.FromStream(input))
-            using (var newImage = ScaleImage(image, 500, 500))
+            using (var newImage = ScaleImage(image, 300, 300))
             {
                 return imageToByteArray(newImage);
             }
