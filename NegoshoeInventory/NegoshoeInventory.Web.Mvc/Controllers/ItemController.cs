@@ -27,7 +27,8 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
         // GET: Item/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var record = data.GetOne(id);
+            return View(record);
         }
 
         // GET: Item/Create

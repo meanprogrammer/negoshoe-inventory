@@ -3,32 +3,36 @@
 @{
     ViewBag.Title = "Items";
 }
-
-<h2>Index</h2>
-
+<br />
 <p><a href="~/Item/Create">
-    <input type="button" id="additem" name="additem" class="btn btn-primary btn-md" value="Add Item" />
+    <input type="button" id="additem" name="additem" class="btn btn-primary btn-sm" value="Add Item" />
 </a>
 </p>
 <div class="container-fluid">
     <div class="row">
         <table class="table table-bordered table-striped table-responsive table-sm">
             <tr>
-                <th>Item Name</th>
-                <th>Description</th>
-                <th>Total Qty.</th>
-                <th>Qty in Office</th>
-                <th>Qty in Laguna</th>
+                <td>Name</td>
+                <td class="hidden-sm-down">Description</td>
+                <td><p class="hidden-sm-down">Total Qty.</p><p class="hidden-md-up">Total</p></td>
+                <td><p class="hidden-sm-down">Qty in Office</p><p class="hidden-md-up">Office</p></td>
+                <td><p class="hidden-sm-down">Qty in Laguna</p><p class="hidden-md-up">House</p></td>
+                <td></td>
             </tr>
             @if (@Model != null) { 
                 foreach (var item in @Model)
                 {
                     <tr>
                         <td>@item.ItemName</td>
-                        <td>@item.Description</td>
+                        <td class="hidden-sm-down">@item.Description</td>
                         <td>@item.TotalQuantity</td>
                         <td>@item.OfficeQuantity</td>
                         <td>@item.HouseQuantity</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.RecordID }, new { @class = "btn btn-sm btn-primary" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RecordID }, new { @class = "btn btn-sm btn-danger" })
+                            @Html.ActionLink("Details", "Details", new { id = item.RecordID }, new { @class = "btn btn-sm btn-secondary" })
+                        </td>
                     </tr>
                 }
             }             
@@ -36,7 +40,8 @@
 
     </div>
 
-    @if (Model != null) { 
+    @*
+    @if (Model != null) {
         foreach (var item in @Model)
         {
             <div class="row item-container">
@@ -68,10 +73,10 @@
                         </tr>
                         <tr>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.RecordID }, new { @class = "btn btn-sm btn-primary" }) 
+                                @Html.ActionLink("Edit", "Edit", new { id = item.RecordID }, new { @class = "btn btn-sm btn-primary" })
                                 @Html.ActionLink("Delete", "Delete", new { id = item.RecordID }, new { @class = "btn btn-sm btn-danger" })
-                               <!-- @Html.ActionLink("Details", "Details", new { id = item.RecordID }) |-->
-                            
+                                @Html.ActionLink("Details", "Details", new { id = item.RecordID }, new { @class = "btn btn-sm btn-secondary" })
+
                             </td>
                         </tr>
                     </table>
@@ -79,6 +84,7 @@
                 <div class="col-sm-7 hidden-md-up">Small View</div>
             </div>
         }
-    }
+    }*@
 </div>
 
+    

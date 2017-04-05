@@ -1,0 +1,49 @@
+﻿@model NegoShoePH.Data.Item
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Item</h4>
+    <div class="row item-container">
+
+        <div class="col-md-5 col-lg-5 col-sm-5">
+            <img alt="Embedded Image" class="img-thumbnail" src="data:image/jpg;base64,@Html.DisplayFor(model => model.ImageBase64)" />
+        </div>
+        <div class="col-md-7 col-lg-7 hidden-sm-down">
+            <table class="table table-responsive table-sm">
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.ItemName)</td>
+                    <td>@Html.DisplayFor(model => model.ItemName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Description)</td>
+                    <td>@Html.DisplayFor(model => model.Description)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.TotalQuantity)</td>
+                    <td>@Html.DisplayFor(model => model.TotalQuantity)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.OfficeQuantity)</td>
+                    <td>@Html.DisplayFor(model => model.OfficeQuantity)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.HouseQuantity)</td>
+                    <td>@Html.DisplayFor(model => model.HouseQuantity)</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.RecordID }, new { @class = "btn btn-sm btn-primary" })
+                        @Html.ActionLink("Delete", "Delete", new { id = Model.RecordID }, new { @class = "btn btn-sm btn-danger" })
+                        @Html.ActionLink("Details", "Details", new { id = Model.RecordID }, new { @class = "btn btn-sm btn-secondary" })
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-7 hidden-md-up">Small View</div>
+    </div>
