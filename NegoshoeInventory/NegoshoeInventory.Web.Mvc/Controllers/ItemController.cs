@@ -103,8 +103,14 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
         // GET: Item/Edit/5
         public ActionResult Edit(int id)
         {
+            ItemViewModel vm = new ItemViewModel();
+            
             var record = data.GetOne(id);
-            return View(record);
+            vm.Item = record;
+            vm.Filename = record.Filename;
+            vm.Brands = ConvertToSelectListItemBrand(bData.GetAllBrand());
+            vm.ProductType = ConvertToSelectListItemTypes(pData.GetAllProductType());
+            return View(vm);
         }
 
         // POST: Item/Edit/5
@@ -113,7 +119,21 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
         {
             try
             {
-                // TODO:     update logic here
+                var files = Request.Files;
+                var file = files[0];
+                var ext = Path.GetExtension(file.FileName);
+                var filename = Path.GetFileNameWithoutExtension(file.FileName);
+
+                if (file != null)
+                {
+                    byte[] imgBinary = ImageResizeHelper.ProcessResizeImage(file.InputStream);
+                    //item.Image = new System.Data.Linq.Binary(imgBinary);
+                    var base64image = Convert.ToBase64String(imgBinary);
+                    item.Filename = filename;
+                    item.ImageBase64 = base64image;
+                }
+
+
                 data.UpdateItem(item, id);
                 return RedirectToAction("Index");
             }

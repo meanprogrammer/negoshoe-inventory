@@ -44,9 +44,9 @@ namespace NegoShoePH.Data
             if (record.OfficeQuantity != i.OfficeQuantity) { record.OfficeQuantity = i.OfficeQuantity; }
             if (record.TotalQuantity != i.TotalQuantity) { record.TotalQuantity = i.TotalQuantity; }
             if (record.HouseQuantity != i.HouseQuantity) { record.HouseQuantity = i.HouseQuantity; }
-            if (record.ImageBase64 != i.ImageBase64) { record.ImageBase64 = i.ImageBase64; }
+            if (record.ImageBase64 != i.ImageBase64 && i.ImageBase64 != null) { record.ImageBase64 = i.ImageBase64; }
             if (record.Description != i.Description) { record.Description = i.Description; }
-            if (record.Filename != i.Filename) { record.Filename = i.Filename; }
+            if (record.Filename != i.Filename && i.Filename != null) { record.Filename = i.Filename; }
             if (record.Remarks != i.Remarks) { record.Remarks = i.Remarks; }
             record.RecordID = recordId;
 
