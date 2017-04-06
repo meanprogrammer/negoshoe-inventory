@@ -38,6 +38,9 @@ namespace NegoShoePH.Data
             if(record == null) { return false; }
 
             if (record.ItemName != i.ItemName) { record.ItemName = i.ItemName; }
+            if (record.Brand != i.Brand) { record.Brand = i.Brand; }
+            if (record.ProductType != i.ProductType) { record.ProductType = i.ProductType; }
+            if (record.ItemName != i.ItemName) { record.ItemName = i.ItemName; }
             if (record.OfficeQuantity != i.OfficeQuantity) { record.OfficeQuantity = i.OfficeQuantity; }
             if (record.TotalQuantity != i.TotalQuantity) { record.TotalQuantity = i.TotalQuantity; }
             if (record.HouseQuantity != i.HouseQuantity) { record.HouseQuantity = i.HouseQuantity; }

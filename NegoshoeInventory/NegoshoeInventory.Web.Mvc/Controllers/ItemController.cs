@@ -1,4 +1,5 @@
-﻿using NegoShoePH.Common;
+﻿using NegoshoeInventory.Web.Mvc.Models;
+using NegoShoePH.Common;
 using NegoShoePH.Data;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,13 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
     public class ItemController : Controller
     {
         ItemData data;
+        BrandData bData;
+        ProductTypeData pData;
         public ItemController()
         {
             data = new ItemData();
+            bData = new BrandData();
+            pData = new ProductTypeData();
         }
 
         // GET: Item
@@ -34,21 +39,34 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
         // GET: Item/Create
         public ActionResult Create()
         {
-            return View();
+            ItemViewModel vm = new ItemViewModel();
+            vm.Item = new Item();
+            vm.Brands = ConvertToSelectListItemBrand(bData.GetAllBrand());
+            vm.ProductType = ConvertToSelectListItemTypes(pData.GetAllProductType());
+            return View(vm);
+        }
+
+        private SelectList ConvertToSelectListItemBrand(List<ItemBrand> brands) {
+            brands.Insert(0, new ItemBrand() { Brand = "-- SELECT --", RecordID = 0 });
+            return new SelectList(brands, "RecordID", "Brand", "test");
+        }
+
+        private SelectList ConvertToSelectListItemTypes(List<ItemType> prodTypes)
+        {
+            prodTypes.Insert(0, new ItemType() { ProductType = "-- SELECT --", RecordID = 0 });
+            return new SelectList(prodTypes, "RecordID", "ProductType");
         }
 
         // POST: Item/Create
         [HttpPost]
         public ActionResult Create(Item item, HttpPostedFileBase Filename)
         {
+            
             try
             {
                 var files = Request.Files;
                 var ext = Path.GetExtension(Filename.FileName);
                 var filename = Path.GetFileNameWithoutExtension(Filename.FileName);
-                var completeFilename = string.Format("{0}_{1}{2}", filename, Guid.NewGuid().ToString(), ext);
-                var uploadspath = Server.MapPath("~/App_Data/uploads");
-                var fullPath = Path.Combine(uploadspath, completeFilename);
 
                 if (Filename != null)
                 {
@@ -68,6 +86,7 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
                 //ModelState.AddModelError(string.Empty, ex.Message);
                 ViewBag.Exception = ex.Message;
             }
+             
             return View();
         }
 
