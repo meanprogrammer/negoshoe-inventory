@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NegoshoeInventory.Web.Mvc",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer", "ImageResizer\ImageResizer.csproj", "{435E08CA-CE1C-4400-838E-9F2E31008016}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Importer", "Importer\Importer.csproj", "{4DEC2961-6EE6-4947-994A-6B28F48D690C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{435E08CA-CE1C-4400-838E-9F2E31008016}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{435E08CA-CE1C-4400-838E-9F2E31008016}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{435E08CA-CE1C-4400-838E-9F2E31008016}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DEC2961-6EE6-4947-994A-6B28F48D690C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DEC2961-6EE6-4947-994A-6B28F48D690C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DEC2961-6EE6-4947-994A-6B28F48D690C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DEC2961-6EE6-4947-994A-6B28F48D690C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
