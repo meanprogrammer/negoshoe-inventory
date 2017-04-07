@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NegoShoePH.Data.Entity
+namespace NegoShoePH.Data
 {
-    public class Item
+    public partial class Item
     {
-        public string ImageBase64 { get; set; }
+        public string BrandName { get; set; }
+        public string ProductTypeName { get; set; }
     }
 }

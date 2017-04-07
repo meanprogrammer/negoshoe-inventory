@@ -1,5 +1,4 @@
 ﻿using NegoShoePH.Data;
-using NegoShoePH.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

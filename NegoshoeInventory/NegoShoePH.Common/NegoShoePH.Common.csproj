@@ -44,7 +44,9 @@
     <Compile Include="ImageResizeHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="negoshoe.sql" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="DB Backup\NegoShoeInventory.bak" />
   </ItemGroup>

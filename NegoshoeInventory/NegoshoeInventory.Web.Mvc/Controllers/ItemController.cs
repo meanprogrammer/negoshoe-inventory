@@ -147,7 +147,7 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
         public ActionResult Delete(int id)
         {
             data.DeleteItem(id);
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         // POST: Item/Delete/5
