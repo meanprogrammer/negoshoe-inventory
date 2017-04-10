@@ -15,7 +15,11 @@ namespace NegoShoePH.Data
 
         public Item GetOne(int id) 
         {
-            return context.Items.Where(c => c.RecordID == id).FirstOrDefault();
+            var result = context.Items.Single(c => c.RecordID == id);
+            result.BrandName = context.ItemBrands.Single(c => c.RecordID == result.Brand).Brand;
+            result.ProductTypeName = context.ItemTypes.Single(c => c.RecordID == result.ProductType).ProductType;
+
+            return result;
         }
 
         public List<Item> GetAllItem()
