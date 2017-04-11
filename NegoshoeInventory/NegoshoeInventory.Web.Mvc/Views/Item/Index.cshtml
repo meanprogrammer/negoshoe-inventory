@@ -1,9 +1,25 @@
-﻿@model IEnumerable<NegoShoePH.Data.Item>
+﻿@model NegoshoeInventory.Web.Mvc.Models.IndexItemViewModel
 
 @{
     ViewBag.Title = "Items";
 }
 <br />
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+            @Html.LabelFor(model => model.ProductTypeID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.DropDownListFor(model => model.ProductTypeID, Model.ProductType, new { @class = "form-control input-lg input-md input-sm input-xs" })
+                @Html.ValidationMessageFor(model => model.ProductTypeID, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.BrandID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.DropDownListFor(model => model.BrandID, Model.Brands, new { @class = "form-control input-lg input-md input-sm input-xs" })
+                @Html.ValidationMessageFor(model => model.BrandID, "", new { @class = "text-danger" })
+            </div>
+
+    </div>
+</div>
 <p><a href="~/Item/Create">
     <input type="button" id="additem" name="additem" class="btn btn-primary btn-sm" value="Add Item" />
 </a>
@@ -14,20 +30,22 @@
             <tr>
                 <td>Name</td>
                 <td class="hidden-sm-down">Description</td>
-                <td><p class="hidden-sm-down">Total Qty.</p><p class="hidden-md-up">Total</p></td>
-                <td><p class="hidden-sm-down">Qty in Office</p><p class="hidden-md-up">Office</p></td>
-                <td><p class="hidden-sm-down">Qty in Laguna</p><p class="hidden-md-up">House</p></td>
+                <td class="hidden-sm-down"><p>Total Qty.</p></td>
+                <td class="hidden-sm-down"><p>Qty in Office</p></td>
+                <td class="hidden-sm-down"><p>Qty in Laguna</p></td>
+                <td colspan="3" class="hidden-md-up">Total/Office/House</td>
                 <td></td>
             </tr>
-            @if (@Model != null) { 
-                foreach (var item in @Model)
+            @if (@Model.Items != null) {
+                foreach (var item in @Model.Items)
                 {
                     <tr>
                         <td>@item.ItemName</td>
                         <td class="hidden-sm-down">@item.Description</td>
-                        <td>@item.TotalQuantity</td>
-                        <td>@item.OfficeQuantity</td>
-                        <td>@item.HouseQuantity</td>
+                        <td class="hidden-sm-down">@item.TotalQuantity</td>
+                        <td class="hidden-sm-down">@item.OfficeQuantity</td>
+                        <td class="hidden-sm-down">@item.HouseQuantity</td>
+                        <td colspan="3" class="hidden-md-up">@item.TotalQuantity / @item.OfficeQuantity / @item.HouseQuantity</td>
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { id = item.RecordID }, new { @class = "btn btn-sm btn-primary" })
                             @Html.ActionLink("Delete", "Delete", new { id = item.RecordID }, new { @class = "btn btn-sm btn-danger" })
