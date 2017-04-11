@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NegoShoeInventory" Class="InventoryDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=ffdfa40e-f8a0-463e-8261-a73600cf33c0.sqlserver.sequelizer.com;Initial Catalog=dbffdfa40ef8a0463e8261a73600cf33c0;User ID=ksaizignkybiwsan" SettingsObjectName="NegoShoePH.Data.Properties.Settings" SettingsPropertyName="PROD" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQL2012;Initial Catalog=NegoShoeInventory;Integrated Security=True" SettingsObjectName="NegoShoePH.Data.Properties.Settings" SettingsPropertyName="NegoShoeInventoryConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ItemBrand" Member="ItemBrands">
     <Type Name="ItemBrand">
       <Column Name="RecordID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

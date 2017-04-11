@@ -24,7 +24,15 @@ namespace NegoShoePH.Data
 
         public List<Item> GetAllItem()
         {
-            return context.Items.ToList();
+            var list = context.Items.ToList();
+
+            foreach (Item item in list)
+            {
+                item.BrandName = context.ItemBrands.Single(c => c.RecordID == item.Brand).Brand;
+                item.ProductTypeName = context.ItemTypes.Single(c => c.RecordID == item.ProductType).ProductType;
+            }
+
+            return list;
         }
 
         public bool SaveItem(Item i)

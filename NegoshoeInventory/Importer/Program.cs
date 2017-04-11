@@ -28,18 +28,21 @@ namespace Importer
                 if (ctr == 0) { ctr++; reader.Read(); }
                 string itemName = reader.GetString(0);
                 string description = reader.GetString(1);
-                string totalQuantity = reader.GetString(2);
-                string officeQuantity = reader.GetString(3);
-                string houseQuantity = reader.GetString(4);
-                string filename = reader.GetString(5);
-                string remarks = reader.GetString(7);
+                string brand = reader.GetString(2);
+                string type = reader.GetString(3);
+                
+                string totalQuantity = reader.GetString(4);
+                string officeQuantity = reader.GetString(5);
+                string houseQuantity = reader.GetString(6);
+                string filename = reader.GetString(7);
+                string remarks = reader.GetString(8);
                 byte[] imgBinary =ImageResizeHelper.ProcessResizeImage(Path.Combine(imageBasePath, filename));
                 var base64image = Convert.ToBase64String(imgBinary);
                 //string imageBase64 = reader.GetString(6);
 
                 string sql= 
-                    "INSERT INTO Items(ItemName,Brand,ProductType,Description,TotalQuantity,OfficeQuantity,HouseQuantity,Filename,ImageBase64,Remarks) "+
-                    "VALUES('"+itemName+"',1, 2,'"+description+"',"+totalQuantity+","+officeQuantity+","+houseQuantity+",'"+filename+"','"+base64image+"','"+remarks+"');";
+                    "INSERT INTO Items([ItemName],[Brand],[ProductType],[Description],[TotalQuantity],[OfficeQuantity],[HouseQuantity],[Filename],[ImageBase64],[Remarks]) "+
+                    "VALUES('"+itemName+"',"+brand+","+type+",'"+description+"',"+totalQuantity+","+officeQuantity+","+houseQuantity+",'"+filename+"','"+base64image+"','"+remarks+"');";
 
                 File.AppendAllText("output.sql", sql);
 
