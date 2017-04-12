@@ -22,9 +22,26 @@ namespace NegoShoePH.Data
             return result;
         }
 
-        public List<Item> GetAllItem()
+        public List<Item> GetAllItem(int brandId, int typeId)
         {
             var list = context.Items.ToList();
+
+            if (brandId > 0 && typeId > 0)
+            {
+                list = list.Where(c => c.Brand == brandId && c.ProductType == typeId).ToList() ;
+            }
+            else if (brandId > 0 && typeId == 0)
+            {
+                list = list.Where(c => c.Brand == brandId).ToList();
+            }
+            else if (typeId > 0 && brandId == 0)
+            {
+                list = list.Where(c => c.ProductType == typeId).ToList();
+            }
+            else 
+            { 
+
+            }
 
             foreach (Item item in list)
             {

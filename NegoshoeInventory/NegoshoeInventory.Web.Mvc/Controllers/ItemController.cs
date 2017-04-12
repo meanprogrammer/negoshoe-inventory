@@ -26,11 +26,21 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
         public ActionResult Index()
         {
             IndexItemViewModel vm = new IndexItemViewModel();
-            vm.Items = data.GetAllItem();
+            vm.Items = data.GetAllItem(0,0);
             vm.Brands = ConvertToSelectListItemBrand(bData.GetAllBrand());
             vm.ProductType = ConvertToSelectListItemTypes(pData.GetAllProductType());
 
             return View(vm);
+        }
+
+        public ActionResult Search(int BrandID, int ProductTypeID) 
+        {
+            IndexItemViewModel vm = new IndexItemViewModel();
+            vm.Items = data.GetAllItem(BrandID, ProductTypeID);
+            vm.Brands = ConvertToSelectListItemBrand(bData.GetAllBrand());
+            vm.ProductType = ConvertToSelectListItemTypes(pData.GetAllProductType());
+
+            return View("Index", vm);
         }
 
         // GET: Item/Details/5

@@ -16,7 +16,7 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
 
         public ActionResult Index()
         {
-            List<Item> items = data.GetAllItem();
+            List<Item> items = data.GetAllItem(0,0);
             return View(items);
         }
 
