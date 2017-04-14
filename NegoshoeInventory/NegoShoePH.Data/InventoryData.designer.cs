@@ -22,7 +22,7 @@ namespace NegoShoePH.Data
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="NegoShoeInventory")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="dbffdfa40ef8a0463e8261a73600cf33c0")]
 	public partial class InventoryDataDataContext : System.Data.Linq.DataContext
 	{
 		
