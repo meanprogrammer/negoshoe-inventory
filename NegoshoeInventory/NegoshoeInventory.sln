@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer", "ImageResize
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Importer", "Importer\Importer.csproj", "{4DEC2961-6EE6-4947-994A-6B28F48D690C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleASPNET", "SampleASPNET\SampleASPNET.csproj", "{3B2CCAE4-54C3-4697-A636-8FD5217C1483}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{4DEC2961-6EE6-4947-994A-6B28F48D690C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DEC2961-6EE6-4947-994A-6B28F48D690C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DEC2961-6EE6-4947-994A-6B28F48D690C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B2CCAE4-54C3-4697-A636-8FD5217C1483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B2CCAE4-54C3-4697-A636-8FD5217C1483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B2CCAE4-54C3-4697-A636-8FD5217C1483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B2CCAE4-54C3-4697-A636-8FD5217C1483}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
