@@ -38,7 +38,7 @@ namespace NegoShoePH.Data
             {
                 list = list.Where(c => c.ProductType == typeId).ToList();
             }
-            else 
+            else
             { 
 
             }

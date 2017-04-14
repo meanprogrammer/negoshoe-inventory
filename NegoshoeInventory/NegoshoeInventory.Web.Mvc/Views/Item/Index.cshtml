@@ -9,20 +9,19 @@
 <br />
 <div class="row">
             <div class="col-md-3">
-                @Html.LabelFor(model => model.ProductTypeID, htmlAttributes: new { @class = "control-label" })
                 @Html.DropDownListFor(model => model.ProductTypeID, Model.ProductType, new { @class = "form-control input-lg input-md input-sm input-xs" })
                 @Html.ValidationMessageFor(model => model.ProductTypeID, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-3">
-                @Html.LabelFor(model => model.BrandID, htmlAttributes: new { @class = "control-label" })
                 @Html.DropDownListFor(model => model.BrandID, Model.Brands, new { @class = "form-control input-lg input-md input-sm input-xs" })
                 @Html.ValidationMessageFor(model => model.BrandID, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-3">
-                <input type="submit" value="Search" class="btn btn-default" />
+                
+                <input type="submit" value="Search" id="btnSubmit" class="btn btn-primary btn-block" />
             </div>
             <div class="col-md-3">
-
+                &nbsp;
             </div>
 </div>
 <br />

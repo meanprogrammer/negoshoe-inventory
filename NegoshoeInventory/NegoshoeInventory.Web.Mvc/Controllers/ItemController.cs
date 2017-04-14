@@ -61,13 +61,13 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
         }
 
         private SelectList ConvertToSelectListItemBrand(List<ItemBrand> brands) {
-            brands.Insert(0, new ItemBrand() { Brand = "-- SELECT --", RecordID = 0 });
+            brands.Insert(0, new ItemBrand() { Brand = "-- All Brands --", RecordID = 0 });
             return new SelectList(brands, "RecordID", "Brand", "test");
         }
 
         private SelectList ConvertToSelectListItemTypes(List<ItemType> prodTypes)
         {
-            prodTypes.Insert(0, new ItemType() { ProductType = "-- SELECT --", RecordID = 0 });
+            prodTypes.Insert(0, new ItemType() { ProductType = "-- All types --", RecordID = 0 });
             return new SelectList(prodTypes, "RecordID", "ProductType");
         }
 
@@ -138,13 +138,17 @@ namespace NegoshoeInventory.Web.Mvc.Controllers
                 var ext = Path.GetExtension(file.FileName);
                 var filename = Path.GetFileNameWithoutExtension(file.FileName);
 
-                if (file != null)
+                if (file != null && file.ContentLength > 0)
                 {
                     byte[] imgBinary = ImageResizeHelper.ProcessResizeImage(file.InputStream);
                     //item.Image = new System.Data.Linq.Binary(imgBinary);
                     var base64image = Convert.ToBase64String(imgBinary);
                     item.Filename = filename;
                     item.ImageBase64 = base64image;
+                }
+                else
+                {
+                    item.Filename = string.Empty;
                 }
 
 

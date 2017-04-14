@@ -14,8 +14,10 @@ namespace Importer
     {
         static void Main(string[] args)
         {
-            string imageBasePath = @"C:\Users\vd2\Source\Repos\negoshoe-inventory\NegoshoeInventory\ImagesUpload";
-            string filePath = "Upload_Template_N.xlsx";
+            //string imageBasePath = @"C:\Users\vd2\Source\Repos\negoshoe-inventory\NegoshoeInventory\ImagesUpload";
+            string imageBasePath = @"C:\Users\Valiant\Desktop\Item Pictures";
+            //string filePath = "Upload_Template_N.xlsx";
+            string filePath = "test1.xlsx";
             FileStream stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
 
             //IExcelDataReader reader = ExcelReaderFactory.CreateBinaryReader(stream);

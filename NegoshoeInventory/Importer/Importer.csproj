@@ -52,6 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="test1.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Upload_Template_N.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
