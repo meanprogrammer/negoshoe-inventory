@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="negoshoe.sql" />
+    <Content Include="output.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DB Backup\NegoShoeInventory.bak" />
